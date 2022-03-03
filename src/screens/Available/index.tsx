@@ -1,4 +1,4 @@
-import { ScrollView } from "react-native";
+import { FlatList, ScrollView } from "react-native";
 import React from "react";
 import {
   BackText,
@@ -12,9 +12,19 @@ import Icon from "react-native-vector-icons/Feather";
 import { useNavigation } from "@react-navigation/native";
 import { propsStack } from "../../Models";
 import { Card } from "./Card";
+import { Api } from "../../services/Api";
+import { Ievent } from "../../interfaces";
 
 export const Available = () => {
   const Navigation = useNavigation<propsStack>();
+
+  const [eventList, setEvents] = React.useState<Ievent[]>([]);
+
+  React.useEffect(() => {
+    Api.get<Ievent[]>("/events", { params: { tipoId: "eq.1" } })
+      .then(({ data }) => setEvents(data))
+      .catch((response) => console.log(response));
+  }, []);
 
   return (
     <Container>
@@ -29,15 +39,12 @@ export const Available = () => {
 
       <HeadText>Selecione o evento desejado. E espere sua data!</HeadText>
 
-      <ScrollView
+      <FlatList
         style={{ width: "80%", flex: 1, marginVertical: 20 }}
         showsVerticalScrollIndicator={false}
-      >
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </ScrollView>
+        data={eventList}
+        renderItem={({ item }) => <Card data={item} />}
+      />
     </Container>
   );
 };
