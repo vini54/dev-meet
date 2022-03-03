@@ -1,4 +1,4 @@
-import { ScrollView, Text } from "react-native";
+import { ScrollView } from "react-native";
 import React from "react";
 import {
   BackText,
@@ -13,7 +13,7 @@ import { useNavigation } from "@react-navigation/native";
 import { propsStack } from "../../Models";
 import { Card } from "./Card";
 
-export const Events = () => {
+export const Available = () => {
   const Navigation = useNavigation<propsStack>();
 
   return (
@@ -29,7 +29,10 @@ export const Events = () => {
 
       <HeadText>Selecione o evento desejado. E espere sua data!</HeadText>
 
-      <ScrollView style={{ width: "80%", flex: 1, marginVertical: 20 }}>
+      <ScrollView
+        style={{ width: "80%", flex: 1, marginVertical: 20 }}
+        showsVerticalScrollIndicator={false}
+      >
         <Card />
         <Card />
         <Card />

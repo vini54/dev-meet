@@ -37,7 +37,7 @@ export const Greeting = () => {
 
       <PersonImg source={require(Person)} resizeMode="contain" />
 
-      <NextBtn onPress={() => Navigation.navigate("Events")}>
+      <NextBtn onPress={() => Navigation.navigate("Available")}>
         <ArrowRight width={48} height={48} />
       </NextBtn>
     </Container>

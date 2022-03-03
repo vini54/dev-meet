@@ -4,7 +4,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { propsNavigationStack } from "./Models";
 
 import { Greeting } from "./screens/Greeting";
-import { Events } from "./screens/Events";
+import { Available } from "./screens/Available";
+import { Event } from "./screens/Event";
 
 const { Navigator, Screen } =
   createNativeStackNavigator<propsNavigationStack>();
@@ -17,7 +18,8 @@ export const Routing = () => {
         screenOptions={{ headerShown: false }}
       >
         <Screen name="Greeting" component={Greeting} />
-        <Screen name="Events" component={Events} />
+        <Screen name="Available" component={Available} />
+        <Screen name="Event" component={Event} />
       </Navigator>
     </NavigationContainer>
   );

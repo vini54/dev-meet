@@ -1,6 +1,7 @@
-import { View, Text } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import Icon from "react-native-vector-icons/Feather";
+import { propsStack } from "../../../Models";
 import {
   BottomView,
   Container,
@@ -17,6 +18,7 @@ import {
 } from "./styled";
 
 export const Card = () => {
+  const Navigation = useNavigation<propsStack>();
   return (
     <Container>
       <DateView>
@@ -38,7 +40,7 @@ export const Card = () => {
             Organizado por : <InfoBold>Comunidade Ballerini</InfoBold>
           </InfoText>
         </InfoView>
-        <EnterBtn>
+        <EnterBtn onPress={() => Navigation.navigate("Event")}>
           <Icon name="arrow-right" size={24} color="#FF5100" />
         </EnterBtn>
       </BottomView>
