@@ -38,7 +38,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.vini.devMeet"
     },
     "web": {
       "favicon": "./assets/favicon.png"
