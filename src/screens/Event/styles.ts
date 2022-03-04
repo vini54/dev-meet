@@ -5,11 +5,12 @@ export const Container = styled.View`
   justify-content: flex-start;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.neutral90};
+  padding: 20px 0;
 `;
 
 export const HeadView = styled.View`
   margin: 20px 0 10px;
-  width: 80%;
+  width: 90%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -44,7 +45,7 @@ export const BackText = styled.Text`
 
 export const Title = styled.Text`
   margin: 10px 0;
-  width: 80%;
+  width: 90%;
   font-size: 28px;
   line-height: 40px;
   font-family: ${({ theme }) => theme.fonts.epilogueExtrabold};
@@ -53,7 +54,7 @@ export const Title = styled.Text`
 
 export const Description = styled.Text`
   margin: 10px 0;
-  width: 80%;
+  width: 90%;
   font-size: 12px;
   line-height: 24px;
   font-family: ${({ theme }) => theme.fonts.epilogueRegular};
@@ -62,7 +63,7 @@ export const Description = styled.Text`
 
 export const Info = styled.Text`
   margin: 10px 0;
-  width: 80%;
+  width: 90%;
   text-align: left;
   font-size: 10px;
   font-family: ${({ theme }) => theme.fonts.epilogueMedium};
@@ -75,7 +76,7 @@ export const InfoBold = styled.Text`
 
 export const LinkHead = styled.Text`
   margin: 40px 0 10px;
-  width: 80%;
+  width: 90%;
   text-align: center;
   font-size: 20px;
   font-family: ${({ theme }) => theme.fonts.epilogueExtrabold};
@@ -84,7 +85,7 @@ export const LinkHead = styled.Text`
 
 export const LinkView = styled.View`
   margin: 10px 0;
-  width: 80%;
+  width: 90%;
   padding: 15px 20px;
   display: flex;
   flex-direction: row;

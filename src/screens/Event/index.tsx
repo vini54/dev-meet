@@ -30,7 +30,7 @@ export const Event = () => {
           <DateHour>19:00</DateHour>
         </HeadDates>
 
-        <BackView onPress={() => Navigation.navigate("Available")}>
+        <BackView onPress={() => Navigation.goBack()}>
           <Icon name="arrow-left" size={18} color="#c6c6c6" />
           <BackText>Voltar</BackText>
         </BackView>

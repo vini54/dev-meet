@@ -1,4 +1,4 @@
-import { FlatList, ScrollView } from "react-native";
+import { FlatList } from "react-native";
 import React from "react";
 import {
   BackText,
@@ -31,7 +31,7 @@ export const Available = () => {
       <View1>
         <Heading1>Eventos disponíveis</Heading1>
 
-        <BackView onPress={() => Navigation.navigate("Greeting")}>
+        <BackView onPress={() => Navigation.goBack()}>
           <Icon name="arrow-left" size={18} color="#c6c6c6" />
           <BackText>Voltar</BackText>
         </BackView>
@@ -40,7 +40,7 @@ export const Available = () => {
       <HeadText>Selecione o evento desejado. E espere sua data!</HeadText>
 
       <FlatList
-        style={{ width: "80%", flex: 1, marginVertical: 20 }}
+        style={{ width: "90%", flex: 1, marginVertical: 20 }}
         showsVerticalScrollIndicator={false}
         data={eventList}
         renderItem={({ item }) => <Card data={item} />}

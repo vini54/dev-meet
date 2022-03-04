@@ -25,6 +25,7 @@ export const Chose = () => {
       <Paragraph>Selecione a categoria que mais te agrada!</Paragraph>
 
       <ScrollView
+        showsVerticalScrollIndicator={false}
         contentContainerStyle={{
           width: "100%",
           display: "flex",

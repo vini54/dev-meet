@@ -1,9 +1,8 @@
 import styled from "styled-components/native";
 
-export const Container = styled.View`
-  margin: 20px 0;
+export const Container = styled.Pressable`
+  margin: 15px 0;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.primaryWhite};
   border-radius: 10px;
   padding: 20px;
 `;
@@ -63,7 +62,7 @@ export const InfoBold = styled.Text`
   font-family: ${({ theme }) => theme.fonts.epilogueBold};
 `;
 
-export const EnterBtn = styled.Pressable`
+export const EnterBtn = styled.View`
   border-radius: 8px;
   padding: 5px;
 `;

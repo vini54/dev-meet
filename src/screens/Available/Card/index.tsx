@@ -16,6 +16,7 @@ import {
   InfoView,
   Title,
 } from "./styled";
+import theme from "../../../theme/theme";
 
 import { Ievent } from "../../../interfaces";
 
@@ -56,7 +57,16 @@ export const Card = (props: CardProps) => {
 
   const Navigation = useNavigation<propsStack>();
   return (
-    <Container>
+    <Container
+      style={({ pressed }) => [
+        {
+          backgroundColor: pressed
+            ? "rgba(255, 255, 255, 0.8)"
+            : theme.colors.primaryWhite,
+        },
+      ]}
+      onPress={() => Navigation.navigate("Event")}
+    >
       <DateView>
         <DateText>
           <DateBold>{`${dates.day}/${dates.month}`}</DateBold> -
@@ -74,7 +84,7 @@ export const Card = (props: CardProps) => {
             Organizado por : <InfoBold>{data.organizador}</InfoBold>
           </InfoText>
         </InfoView>
-        <EnterBtn onPress={() => Navigation.navigate("Event")}>
+        <EnterBtn>
           <Icon name="arrow-right" size={24} color="#FF5100" />
         </EnterBtn>
       </BottomView>
