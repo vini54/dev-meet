@@ -6,6 +6,7 @@ import { propsNavigationStack } from "./Models";
 import { Greeting } from "./screens/Greeting";
 import { Available } from "./screens/Available";
 import { Event } from "./screens/Event";
+import { Chose } from "./screens/Chose";
 
 const { Navigator, Screen } =
   createNativeStackNavigator<propsNavigationStack>();
@@ -20,6 +21,7 @@ export const Routing = () => {
         <Screen name="Greeting" component={Greeting} />
         <Screen name="Available" component={Available} />
         <Screen name="Event" component={Event} />
+        <Screen name="Chose" component={Chose} />
       </Navigator>
     </NavigationContainer>
   );

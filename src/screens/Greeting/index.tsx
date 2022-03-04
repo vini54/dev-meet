@@ -1,8 +1,8 @@
 import React from "react";
-import { Api } from "../../services/Api";
 import ArrowRight from "../../assets/Arrow-White.svg";
 import { useNavigation } from "@react-navigation/native";
 import { propsStack } from "../../Models";
+import theme from "../../theme/theme";
 import {
   Container,
   Heading,
@@ -18,12 +18,6 @@ const Person = "../../assets/person.png";
 export const Greeting = () => {
   const Navigation = useNavigation<propsStack>();
 
-  /* const hanldePost = () => {
-    Api.get("/events", { params: { tipoId: "eq.1" } })
-      .then(({ data }) => console.log(data))
-      .catch((response) => console.log(response));
-  }; */
-
   return (
     <Container>
       <Heading>
@@ -37,7 +31,16 @@ export const Greeting = () => {
 
       <PersonImg source={require(Person)} resizeMode="contain" />
 
-      <NextBtn onPress={() => Navigation.navigate("Available")}>
+      <NextBtn
+        onPress={() => Navigation.navigate("Chose")}
+        style={({ pressed }) => [
+          {
+            backgroundColor: pressed
+              ? "rgba(255, 81, 0, .6)"
+              : theme.colors.primaryOrange,
+          },
+        ]}
+      >
         <ArrowRight width={48} height={48} />
       </NextBtn>
     </Container>
