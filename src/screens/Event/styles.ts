@@ -104,6 +104,6 @@ export const LinkText = styled.Text`
 
 export const LinkBtn = styled.Pressable`
   background-color: rgba(4, 211, 97, 0.2);
-  padding: 5px;
+  padding: 10px;
   border-radius: 10px;
 `;

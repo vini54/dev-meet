@@ -9,19 +9,24 @@ import {
   View1,
 } from "./styles";
 import Icon from "react-native-vector-icons/Feather";
-import { useNavigation } from "@react-navigation/native";
-import { propsStack } from "../../Models";
+import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
+import { propsNavigationStack, propsStack } from "../../Models";
 import { Card } from "./Card";
 import { Api } from "../../services/Api";
 import { Ievent } from "../../interfaces";
+import { Skeleton, VStack } from "native-base";
 
 export const Available = () => {
   const Navigation = useNavigation<propsStack>();
+  const route = useRoute<RouteProp<propsNavigationStack, "Available">>();
 
+  const TipoId = route.params.tipoId;
+
+  const [loaded, setLoaded] = React.useState(false);
   const [eventList, setEvents] = React.useState<Ievent[]>([]);
 
   React.useEffect(() => {
-    Api.get<Ievent[]>("/events", { params: { tipoId: "eq.1" } })
+    Api.get<Ievent[]>("/events", { params: { tipoId: `eq.${TipoId}` } })
       .then(({ data }) => setEvents(data))
       .catch((response) => console.log(response));
   }, []);
@@ -44,6 +49,14 @@ export const Available = () => {
         showsVerticalScrollIndicator={false}
         data={eventList}
         renderItem={({ item }) => <Card data={item} />}
+        ListEmptyComponent={
+          <VStack space="10">
+            <Skeleton h="180" rounded="10" />
+            <Skeleton h="180" rounded="10" />
+            <Skeleton h="180" rounded="10" />
+            <Skeleton h="180" rounded="10" />
+          </VStack>
+        }
       />
     </Container>
   );

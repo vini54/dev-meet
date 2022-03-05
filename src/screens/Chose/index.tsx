@@ -128,7 +128,9 @@ export const Chose = () => {
           <>
             <NextText>Próximo</NextText>
             <NextBtn
-              onPress={() => Navigation.navigate("Available")}
+              onPress={() =>
+                Navigation.navigate("Available", { tipoId: cardSelected })
+              }
               style={({ pressed }) => [
                 {
                   backgroundColor: pressed

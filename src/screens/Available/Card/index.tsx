@@ -65,7 +65,7 @@ export const Card = (props: CardProps) => {
             : theme.colors.primaryWhite,
         },
       ]}
-      onPress={() => Navigation.navigate("Event")}
+      onPress={() => Navigation.navigate("Event", { id: data.id })}
     >
       <DateView>
         <DateText>

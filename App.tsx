@@ -2,11 +2,10 @@ import React from "react";
 import { StatusBar } from "react-native";
 import { ThemeProvider } from "styled-components/native";
 import theme from "./src/theme/theme";
-
 import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
-
 import { Routing } from "./src/Routes";
+import { NativeBaseProvider } from "native-base";
 
 import {
   Epilogue_400Regular,
@@ -38,10 +37,12 @@ export default function App() {
     return <AppLoading />;
   } else {
     return (
-      <ThemeProvider theme={theme}>
-        <Routing />
-        <StatusBar barStyle="light-content" backgroundColor="#282828" />
-      </ThemeProvider>
+      <NativeBaseProvider>
+        <ThemeProvider theme={theme}>
+          <Routing />
+          <StatusBar barStyle="light-content" backgroundColor="#282828" />
+        </ThemeProvider>
+      </NativeBaseProvider>
     );
   }
 }
