@@ -107,3 +107,38 @@ export const LinkBtn = styled.Pressable`
   padding: 10px;
   border-radius: 10px;
 `;
+
+export const TimerTitle = styled.Text`
+  margin: 20px 0 10px;
+  width: 90%;
+  text-align: left;
+  font-size: 16px;
+  font-family: ${({ theme }) => theme.fonts.epilogueSemibold};
+  color: ${({ theme }) => theme.colors.primaryWhite};
+`;
+
+export const CountView = styled.View`
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const CountEl = styled.View`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const CountNumber = styled.Text`
+  font-size: 40px;
+  font-family: ${({ theme }) => theme.fonts.rajdhaniBold};
+  color: ${({ theme }) => theme.colors.primaryWhite};
+`;
+
+export const CountLabel = styled.Text`
+  margin-left: 4px;
+  font-size: 10px;
+  font-family: ${({ theme }) => theme.fonts.epilogueSemibold};
+  color: rgba(255, 255, 255, 0.5);
+`;

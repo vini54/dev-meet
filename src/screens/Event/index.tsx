@@ -1,5 +1,5 @@
 import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
-import { Skeleton, useToast } from "native-base";
+import { Progress, Skeleton, useToast } from "native-base";
 import React from "react";
 import Icon from "react-native-vector-icons/Feather";
 import { Ievent } from "../../interfaces";
@@ -10,6 +10,10 @@ import {
   BackText,
   BackView,
   Container,
+  CountEl,
+  CountLabel,
+  CountNumber,
+  CountView,
   DateHour,
   DateTime,
   Description,
@@ -21,6 +25,7 @@ import {
   LinkHead,
   LinkText,
   LinkView,
+  TimerTitle,
   Title,
 } from "./styles";
 
@@ -49,6 +54,12 @@ export const Event = () => {
     month: "",
     hour: "",
   });
+  const [countdown, setCountDown] = React.useState({
+    day: 0,
+    hours: 0,
+    minutes: 0,
+    percentage: 0,
+  });
   const [copyLink, setCopyLink] = React.useState(false);
 
   const route = useRoute<RouteProp<propsNavigationStack, "Event">>();
@@ -72,6 +83,24 @@ export const Event = () => {
         day: EventDate.getDate(),
         month: monthNames[EventDate.getMonth()],
         hour: `${EventDate.getHours()}:${EventDate.getMinutes()}0`,
+      });
+
+      const endDate = new Date(eventData.dataInicio).getTime();
+      const startDate = new Date(eventData.dataPublicacao).getTime();
+      const now = new Date().getTime();
+      let delta = Math.abs(endDate - now) / 1000;
+      let days = Math.floor(delta / 86400);
+      delta -= days * 86400;
+      let hours = Math.floor(delta / 3600) % 24;
+      delta -= hours * 3600;
+      let minutes = Math.floor(delta / 60) % 60;
+      delta -= minutes * 60;
+      let percentage = -((startDate - now) / (endDate - now)) * 200;
+      setCountDown({
+        day: days,
+        hours: hours,
+        minutes: minutes,
+        percentage: percentage,
       });
     }
   }, [eventData]);
@@ -141,6 +170,35 @@ export const Event = () => {
           <Icon name={copyLink ? "check" : "copy"} size={20} color="#04D361" />
         </LinkBtn>
       </LinkView>
+
+      <TimerTitle>Tempo até o evento</TimerTitle>
+
+      <CountView>
+        <CountEl>
+          <CountNumber>{countdown.day}</CountNumber>
+          <CountLabel>DAY(s)</CountLabel>
+        </CountEl>
+        <CountEl>
+          <CountNumber>{countdown.hours}</CountNumber>
+          <CountLabel>HOUR(s)</CountLabel>
+        </CountEl>
+        <CountEl>
+          <CountNumber>{countdown.minutes}</CountNumber>
+          <CountLabel>MIN(s)</CountLabel>
+        </CountEl>
+      </CountView>
+
+      <Progress
+        size="sm"
+        w="90%"
+        value={countdown.percentage}
+        my="5"
+        bg="#3C3C3C"
+        _filledTrack={{
+          bg: "#FF5100",
+          borderRadius: 5,
+        }}
+      />
     </Container>
   );
 };
