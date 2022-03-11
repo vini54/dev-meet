@@ -11,10 +11,25 @@
 - react-navigation (stack)
 - typescript
 - styled-components
-  - **Back-end**
-  - axios fetch
-  - supabase database
+  
+*Back-end*
+- axios fetch
+- supabase database
 
 ## Layouts 
 
-![splash](src/assets/Screenshot_events.jpg)
+<div align="center">
+  
+  <img width="150" src="src/assets/Screenshot_splash.jpg" alt="screenshot" />
+  
+  <img width="150" src="src/assets/Screenshot_greeting.jpg" alt="screenshot" />
+  
+  <img width="150" src="src/assets/Screenshot_choseMark.jpg" alt="screenshot" />
+  
+  <img width="150" src="src/assets/Screenshot_avaliable.jpg" alt="screenshot" />
+  
+  <img width="150" src="src/assets/Screenshot_event.jpg" alt="screenshot" />
+  
+  <img width="150" src="src/assets/Screenshot_eventReady.jpg" alt="screenshot" />
+  
+</div>
