@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Container, Info, InfoBold, Title } from "./styles";
 import { SvgProps } from "react-native-svg";
 import { Api } from "../../../services/Api";
@@ -10,10 +10,11 @@ type CardProps = {
   id: number;
   handleSelect: (value: number) => void;
   selected: boolean;
+  disable?: boolean;
 };
 
 export const Card = (props: CardProps) => {
-  const { titulo, Icon, id, handleSelect, selected } = props;
+  const { titulo, Icon, id, handleSelect, selected, disable } = props;
 
   const [eventsNumber, setEventsNumber] = React.useState(0);
 
@@ -22,8 +23,18 @@ export const Card = (props: CardProps) => {
       .then(({ data }) => setEventsNumber(data.length))
       .catch((response) => console.log(response));
   }, []);
+
   return (
-    <Container selected={selected} onPress={() => handleSelect(id)}>
+    <Container
+      selected={selected}
+      onPress={() => handleSelect(id)}
+      disable={disable}
+      style={({ pressed }) => [
+        {
+          transform: [{ scale: pressed ? 0.95 : 1 }],
+        },
+      ]}
+    >
       <Icon width={36} height={36} />
 
       <Title selected={selected}>{titulo}</Title>

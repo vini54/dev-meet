@@ -71,6 +71,7 @@ export const Chose = () => {
           handleSelect={handleSelect}
           titulo="Serverless"
           Icon={cardSelected === 1 ? ProgramingWhite : Programing}
+          disable={selected && cardSelected !== 1 ? true : false}
         />
         <Card
           id={2}
@@ -78,6 +79,7 @@ export const Chose = () => {
           handleSelect={handleSelect}
           titulo="Desenvolvimento front-end"
           Icon={cardSelected === 2 ? LaptopWhite : Laptop}
+          disable={selected && cardSelected !== 2 ? true : false}
         />
         <Card
           id={3}
@@ -85,6 +87,7 @@ export const Chose = () => {
           handleSelect={handleSelect}
           titulo="Git e DevOps"
           Icon={cardSelected === 3 ? IntegrationWhite : Integration}
+          disable={selected && cardSelected !== 3 ? true : false}
         />
         <Card
           id={4}
@@ -92,6 +95,7 @@ export const Chose = () => {
           handleSelect={handleSelect}
           titulo="Agile e gestão de projetos"
           Icon={cardSelected === 4 ? BlocksWhite : Blocks}
+          disable={selected && cardSelected !== 4 ? true : false}
         />
         <Card
           id={5}
@@ -99,6 +103,7 @@ export const Chose = () => {
           handleSelect={handleSelect}
           titulo="Construindo interfaces"
           Icon={cardSelected === 5 ? LaptopWhite : Laptop}
+          disable={selected && cardSelected !== 5 ? true : false}
         />
         <Card
           id={6}
@@ -106,6 +111,7 @@ export const Chose = () => {
           handleSelect={handleSelect}
           titulo="Servidores Linux"
           Icon={cardSelected === 6 ? TerminalWhite : Terminal}
+          disable={selected && cardSelected !== 6 ? true : false}
         />
         <Card
           id={7}
@@ -113,6 +119,7 @@ export const Chose = () => {
           handleSelect={handleSelect}
           titulo="Design de Interfaces"
           Icon={cardSelected === 7 ? BezierWhite : Bezier}
+          disable={selected && cardSelected !== 7 ? true : false}
         />
         <Card
           id={8}
@@ -120,6 +127,7 @@ export const Chose = () => {
           handleSelect={handleSelect}
           titulo="Desenvolvimento Mobile"
           Icon={cardSelected === 8 ? MobileWhite : Mobile}
+          disable={selected && cardSelected !== 8 ? true : false}
         />
       </ScrollView>
 

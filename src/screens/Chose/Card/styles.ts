@@ -1,9 +1,14 @@
 import styled from "styled-components/native";
 
+type ContainerProps = {
+  selected: boolean;
+  disable?: boolean;
+};
+
 type cardProps = {
   selected: boolean;
 };
-export const Container = styled.Pressable<cardProps>`
+export const Container = styled.Pressable<ContainerProps>`
   height: 180px;
   margin-top: 4%;
   width: 48%;
@@ -14,6 +19,7 @@ export const Container = styled.Pressable<cardProps>`
   justify-content: space-between;
   background-color: ${({ selected, theme }) =>
     selected ? theme.colors.primaryOrange : theme.colors.primaryWhite};
+  opacity: ${({ disable }) => (disable ? 0.5 : 1)};
 `;
 
 export const Title = styled.Text<cardProps>`
