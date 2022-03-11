@@ -11,9 +11,11 @@ import {
   BackView,
   Container,
   CountEl,
+  CounterZero,
   CountLabel,
   CountNumber,
   CountView,
+  CountZeroText,
   DateHour,
   DateTime,
   Description,
@@ -88,6 +90,7 @@ export const Event = () => {
       const endDate = new Date(eventData.dataInicio).getTime();
       const startDate = new Date(eventData.dataPublicacao).getTime();
       const now = new Date().getTime();
+
       let delta = Math.abs(endDate - now) / 1000;
       let days = Math.floor(delta / 86400);
       delta -= days * 86400;
@@ -95,7 +98,35 @@ export const Event = () => {
       delta -= hours * 3600;
       let minutes = Math.floor(delta / 60) % 60;
       delta -= minutes * 60;
-      let percentage = -((startDate - now) / (endDate - now)) * 200;
+
+      let percentage;
+
+      if (endDate - now < 0) {
+        percentage = -1;
+      } else if (days === 0) {
+        percentage = 96;
+      } else if (days > 0 && days <= 30) {
+        percentage = 90;
+      } else if (days > 30 && days <= 60) {
+        percentage = 80;
+      } else if (days > 60 && days <= 90) {
+        percentage = 70;
+      } else if (days > 90 && days <= 120) {
+        percentage = 60;
+      } else if (days > 120 && days <= 150) {
+        percentage = 50;
+      } else if (days > 150 && days <= 180) {
+        percentage = 40;
+      } else if (days > 180 && days <= 210) {
+        percentage = 30;
+      } else if (days > 210 && days <= 240) {
+        percentage = 20;
+      } else if (days > 240 && days <= 270) {
+        percentage = 10;
+      } else {
+        percentage = 5;
+      }
+
       setCountDown({
         day: days,
         hours: hours,
@@ -171,34 +202,44 @@ export const Event = () => {
         </LinkBtn>
       </LinkView>
 
-      <TimerTitle>Tempo até o evento</TimerTitle>
+      {loaded &&
+        (countdown.percentage >= 0 ? (
+          <>
+            <TimerTitle>Tempo até o evento</TimerTitle>
 
-      <CountView>
-        <CountEl>
-          <CountNumber>{countdown.day}</CountNumber>
-          <CountLabel>DAY(s)</CountLabel>
-        </CountEl>
-        <CountEl>
-          <CountNumber>{countdown.hours}</CountNumber>
-          <CountLabel>HOUR(s)</CountLabel>
-        </CountEl>
-        <CountEl>
-          <CountNumber>{countdown.minutes}</CountNumber>
-          <CountLabel>MIN(s)</CountLabel>
-        </CountEl>
-      </CountView>
+            <CountView>
+              <CountEl>
+                <CountNumber>{countdown.day}</CountNumber>
+                <CountLabel>DAY(s)</CountLabel>
+              </CountEl>
+              <CountEl>
+                <CountNumber>{countdown.hours}</CountNumber>
+                <CountLabel>HOUR(s)</CountLabel>
+              </CountEl>
+              <CountEl>
+                <CountNumber>{countdown.minutes}</CountNumber>
+                <CountLabel>MIN(s)</CountLabel>
+              </CountEl>
+            </CountView>
 
-      <Progress
-        size="sm"
-        w="90%"
-        value={countdown.percentage}
-        my="5"
-        bg="#3C3C3C"
-        _filledTrack={{
-          bg: "#FF5100",
-          borderRadius: 5,
-        }}
-      />
+            <Progress
+              size="sm"
+              w="90%"
+              value={countdown.percentage}
+              my="5"
+              bg="#3C3C3C"
+              _filledTrack={{
+                bg: "#FF5100",
+                borderRadius: 5,
+              }}
+            />
+          </>
+        ) : (
+          <>
+            <CountZeroText>O Evento já está rolando! 🎉</CountZeroText>
+            <CounterZero />
+          </>
+        ))}
     </Container>
   );
 };

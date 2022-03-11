@@ -142,3 +142,18 @@ export const CountLabel = styled.Text`
   font-family: ${({ theme }) => theme.fonts.epilogueSemibold};
   color: rgba(255, 255, 255, 0.5);
 `;
+
+export const CountZeroText = styled.Text`
+  margin: 10px 0 20px;
+  padding-right: 10%;
+  width: 90%;
+  font-size: 24px;
+  font-family: ${({ theme }) => theme.fonts.epilogueBold};
+  color: ${({ theme }) => theme.colors.primaryWhite};
+`;
+export const CounterZero = styled.View`
+  width: 90%;
+  height: 8px;
+  border-radius: 4px;
+  background-color: rgb(4, 211, 97);
+`;
