@@ -20,16 +20,16 @@
 
 <div align="center">
   
-  <img width="150" src="src/assets/Screenshot_splash.jpg" alt="screenshot" />
+  <img width="200" src="src/assets/Screenshot_splash.jpg" alt="screenshot" />
   
-  <img width="150" src="src/assets/Screenshot_greeting.jpg" alt="screenshot" />
+  <img width="200" src="src/assets/Screenshot_greeting.jpg" alt="screenshot" />
   
-  <img width="150" src="src/assets/Screenshot_choseMark.jpg" alt="screenshot" />
+  <img width="200" src="src/assets/Screenshot_choseMark.jpg" alt="screenshot" />
   
-  <img width="150" src="src/assets/Screenshot_avaliable.jpg" alt="screenshot" />
+  <img width="200" src="src/assets/Screenshot_avaliable.jpg" alt="screenshot" />
   
-  <img width="150" src="src/assets/Screenshot_event.jpg" alt="screenshot" />
+  <img width="200" src="src/assets/Screenshot_event.jpg" alt="screenshot" />
   
-  <img width="150" src="src/assets/Screenshot_eventReady.jpg" alt="screenshot" />
+  <img width="200" src="src/assets/Screenshot_eventReady.jpg" alt="screenshot" />
   
 </div>
